@@ -1,0 +1,209 @@
+$maincolor:#0077f6;
+
+@mixin before($bg-color) {
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        height: 8px;
+        background: $bg-color;
+        border-radius: 10px 10px 0 0;
+    }
+}
+
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+ol,
+p {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    padding: 0;
+    margin: 0;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.TableWrap {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 20px;
+    max-width: 1280px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.Table {
+    width: 32%;
+    box-shadow: 2px 3px 5px 5px #d6d8da;
+    position: relative;
+    border-radius: 10px 10px 0 0;
+}
+
+.Table1 {
+    @include before(#64e4bc);
+}
+
+.Table2 {
+    @include before(#fcd454);
+
+    h2 {
+        position: relative;
+        display: inline-block;
+
+        &::after {
+            padding-left: 2px;
+            position: absolute;
+            content: "/month";
+            font-size: 14px;
+            color: gray;
+            bottom: 6px;
+        }
+    }
+}
+
+.Table3 {
+    @include before(#3c86ec);
+
+    h2 {
+        position: relative;
+
+        &::after {
+            padding-left: 2px;
+            position: absolute;
+            content: "/year";
+            font-size: 14px;
+            color: gray;
+            bottom: 6px;
+        }
+    }
+}
+
+.TableTop {
+    padding: 38px 30px 30px;
+    border-bottom: 1px solid gray;
+}
+
+.TableFlex {
+    display: flex;
+    flex-direction: column; 
+    height: 200px;
+
+    p {
+        margin-top: 20px;
+        flex-grow: 1; 
+    }
+
+    h2 {
+        margin-top: 20px;
+    }
+}
+
+.TableTopButton {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: $maincolor;
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 30px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #0056b3;
+    }
+}
+
+.TableCenter {
+    padding: 30px;
+    border-bottom: 1px solid gray;
+    display: flex;
+    flex-direction: column; 
+    height: 380px;
+
+    ul {
+        margin-top: 20px;
+        flex-grow: 1; 
+    }
+}
+
+.TableSubtitle {
+    font-weight: bold;
+}
+
+.TableBottom {
+    padding: 30px;
+    background: #f4fcfc;
+    display: flex;
+    flex-direction: column; 
+    height: 150px;
+
+    ul {
+        margin-top: 20px;
+        flex-grow: 1; 
+    }
+}
+
+.checkMark {
+    position: relative;
+    padding-left: 32px;
+    &:not(:first-child) { 
+        margin-top: 8px; 
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        background-image: url(/img/check.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 16px;
+        height: 16px;
+        top: 5px;
+        left: 0;
+    }
+}
+
+.CrossMark {
+    position: relative;
+    padding-left: 32px;
+    margin-top: 8px;
+
+    &::before {
+        content: "×";
+        position: absolute;
+        display: inline-block;
+        background-size: contain;
+        background-repeat: no-repeat;
+        font-size: 24px;
+        top: -8px;
+        left: 0;
+    }
+}
